@@ -86,4 +86,24 @@ public class PlaylistService {
     public ResponseEntity<?> getPlaylistsOfUser(Integer id){
         return new ResponseEntity<>(playlistRepository.findByUserId(id),HttpStatus.OK);
     }
+
+    public ResponseEntity<?> createPlaylist(String name,String songs,String userId){
+        List<String> songNameList  = Arrays.asList(songs.split(","));
+        String songIds = "";
+        for(String songName : songNameList){
+            songIds += songRepository.findByName(songName).getId() + ",";
+        }
+        Playlist playlist = new Playlist();
+        playlist.setName(name);
+        playlist.setUserId(Integer.parseInt(userId));
+        playlist.setSongIds(songIds);
+        playlistRepository.save(playlist);
+        return new ResponseEntity<>(playlist,HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> deletePlaylistByName(String name){
+        Playlist playlist = playlistRepository.findByName(name);
+        playlistRepository.delete(playlist);
+        return new ResponseEntity<>(playlist,HttpStatus.OK);
+    }
 }

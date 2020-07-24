@@ -60,4 +60,15 @@ public class PlaylistController {
     public ResponseEntity<?> getPlaylistsOfUser(@PathVariable Integer id){
         return playlistService.getPlaylistsOfUser(id);
     }
+
+    @RequestMapping(value = "/userCreate/{name}/{songs}/{userId}",method = RequestMethod.GET)
+    public ResponseEntity<?> userCreate(@PathVariable String name,@PathVariable String songs,
+    @PathVariable String userId){
+        return playlistService.createPlaylist(name,songs,userId);
+    }
+
+    @RequestMapping(value = "/deletePlaylist/{name}")
+    public ResponseEntity<?> userDeletePlaylist(@PathVariable String name){
+        return playlistService.deletePlaylistByName(name);
+    }
 }

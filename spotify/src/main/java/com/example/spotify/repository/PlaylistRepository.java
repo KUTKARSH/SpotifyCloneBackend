@@ -9,4 +9,5 @@ import java.util.List;
 @Component
 public interface PlaylistRepository extends JpaRepository<Playlist,Integer> {
     List<Playlist> findByUserId(Integer id);
+    Playlist findByName(String name);
 }
