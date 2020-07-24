@@ -22,6 +22,7 @@ public class SongController {
     }
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> view(){
         return songService.view();
     }

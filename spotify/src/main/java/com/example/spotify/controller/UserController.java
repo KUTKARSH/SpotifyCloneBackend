@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     private UserService userService;
@@ -35,6 +36,11 @@ public class UserController {
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     public ResponseEntity<?> update(@RequestBody User user){
         return userService.update(user);
+    }
+
+    @RequestMapping(value = "/login/{email}/{password}")
+    public ResponseEntity<?> login(@PathVariable String email,@PathVariable String password){
+        return userService.login(email,password);
     }
 
 }

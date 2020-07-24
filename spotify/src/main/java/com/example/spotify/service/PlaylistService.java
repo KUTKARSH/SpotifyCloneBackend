@@ -1,7 +1,9 @@
 package com.example.spotify.service;
 
 import com.example.spotify.model.Playlist;
+import com.example.spotify.model.Song;
 import com.example.spotify.repository.PlaylistRepository;
+import com.example.spotify.repository.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +15,13 @@ import java.util.*;
 public class PlaylistService {
 
     private PlaylistRepository playlistRepository;
+    private SongRepository songRepository;
 
     @Autowired
-    public PlaylistService(PlaylistRepository playlistRepository){
+    public PlaylistService(PlaylistRepository playlistRepository,
+                           SongRepository songRepository){
         this.playlistRepository = playlistRepository;
+        this.songRepository = songRepository;
     }
 
     public ResponseEntity<?> create(Playlist playlist){
@@ -59,7 +64,7 @@ public class PlaylistService {
         st.addAll(Arrays.asList(ids.split(",")));
         List<String> oldIdsList = Arrays.asList(playlist.getSongIds().split(","));
         for(String playlistId : oldIdsList){
-            if(st.contains(playlistId) == false)
+            if(!playlistId.equals("") && st.contains(playlistId) == false)
                 newIdsList.add(playlistId);
         }
         playlist.setSongIds(String.join(",",newIdsList));
@@ -67,4 +72,18 @@ public class PlaylistService {
         return new ResponseEntity<>(playlist,HttpStatus.OK);
     }
 
+    public ResponseEntity<?> getPlaylistByIdWithSongs(Integer id){
+        Playlist playlist = playlistRepository.findById(id).get();
+        String songIds = playlist.getSongIds();
+        List<String> idList = Arrays.asList(songIds.split(","));
+        List<Song> songs = new ArrayList<>();
+        for(String songId : idList){
+            songs.add(songRepository.findById(Integer.parseInt(songId)).get());
+        }
+        return new ResponseEntity<>(songs,HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> getPlaylistsOfUser(Integer id){
+        return new ResponseEntity<>(playlistRepository.findByUserId(id),HttpStatus.OK);
+    }
 }

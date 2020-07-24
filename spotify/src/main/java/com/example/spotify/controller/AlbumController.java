@@ -22,6 +22,7 @@ public class AlbumController {
     }
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> view(){
         return albumService.read();
     }
@@ -39,5 +40,11 @@ public class AlbumController {
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     public ResponseEntity<?> update(@RequestBody Album album){
         return albumService.update(album);
+    }
+
+    @RequestMapping(value = "/songs/{id}",method = RequestMethod.GET)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public ResponseEntity<?> getAlbumByIdWithSongs(@PathVariable Integer id){
+        return albumService.getAlbumByIdWithSongs(id);
     }
 }

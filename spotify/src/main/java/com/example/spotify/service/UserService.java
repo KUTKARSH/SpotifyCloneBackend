@@ -2,6 +2,7 @@ package com.example.spotify.service;
 
 import com.example.spotify.model.User;
 import com.example.spotify.repository.UserRepository;
+import com.example.spotify.requestresponse.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,4 +38,23 @@ public class UserService {
         User user = userRepository.findById(id).get();
         return new ResponseEntity<>(user,HttpStatus.FOUND);
     }
+
+
+    public ResponseEntity<?> login(String email,String password){
+        User user = userRepository.findByEmail(email);
+        LoginResponse resp = new LoginResponse();
+        if(user.getPassword().equals(password))
+        {
+            resp.setStatus("Valid");
+            resp.setUserId(user.getId());
+        }
+        else
+        {
+            resp.setStatus("Invalid");
+            resp.setUserId(-1);
+        }
+        return new ResponseEntity<>(resp,HttpStatus.OK);
+    }
+
+
 }

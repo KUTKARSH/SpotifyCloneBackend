@@ -11,6 +11,15 @@ public class Artist {
     @GeneratedValue
     private Integer id;
     private String name;
+    private String followers;
+
+    public String getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(String followers) {
+        this.followers = followers;
+    }
 
     public Integer getId() {
         return id;
