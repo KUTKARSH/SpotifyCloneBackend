@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/artist")
-@CrossOrigin(origins = "https://silly-pare-01c9f2.netlify.app/")
+@CrossOrigin(origins = "https://silly-pare-01c9f2.netlify.app",allowedHeaders = "*")
 public class ArtistController {
 
     private ArtistService artistService;

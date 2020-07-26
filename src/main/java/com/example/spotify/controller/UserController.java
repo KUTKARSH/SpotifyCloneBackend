@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "https://silly-pare-01c9f2.netlify.app/")
+@CrossOrigin(origins = "https://silly-pare-01c9f2.netlify.app",allowedHeaders = "*")
 public class UserController {
 
     private UserService userService;
