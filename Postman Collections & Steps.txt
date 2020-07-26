@@ -1,7 +1,9 @@
 *******************
 POINTS TO BE NOTED
--> Go to h2-console after running the app to look at DB Schema
+-> Go to h2-console after running the app to look at DB Schema.
 -> A song can be sung by multiple artists
+-> Login & Register has been provided by an API and is STRICTLY THROUGH FRONTEND
+   [ ALL APIs CAN BE FREELY USED BY POSTMAN]
 -> Admin control has been provided in each of the controllers [No seperate controller for admin]
 -> Beacuse of the complexity of the project, REST guidelines have been violated at a couple of places
 *******************
@@ -60,6 +62,10 @@ curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/use
     "email": "kumar.utkarsh@GMAIL.COM",
     "password": "123456"
 }'
+
+
+
+
 ----------------------------------------------------------------
 SONG CONTROLLER APIs
 -----------------------------------------------------------------
@@ -118,6 +124,10 @@ curl --location --request POST 'https://spotifybackendchubb.azurewebsites.net/so
     "duration": "3:40",
     "year": 2010
 }'
+
+
+
+
 ---------------------------------------------------------------------
 ARTIST CONTROLLER APIs (replace {variables} with appropriate IDs)
 ---------------------------------------------------------------------
@@ -204,6 +214,9 @@ curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/art
     "duration": "3:40",
     "year": 2010
 }'
+
+
+
 -----------------------------------------------------------------------
 ALBUM CONTROLLER APIs
 -----------------------------------------------------------------------
@@ -265,8 +278,12 @@ curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/alb
     "name": "KNIGHT",
     "year": "2010"
 }'
+
+
+
 -----------------------------------------------------------------------
 PLAYLIST CONTROLLER APIs
+-----------------------------------------------------------------------
 
 // Get all playlists in the DB
 
