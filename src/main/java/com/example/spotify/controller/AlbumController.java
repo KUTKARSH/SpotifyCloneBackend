@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/album")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://clever-mahavira-2dffb7.netlify.app")
 public class AlbumController {
     private AlbumService albumService;
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/playlist")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://clever-mahavira-2dffb7.netlify.app")
 public class PlaylistController {
     private PlaylistService playlistService;
 
