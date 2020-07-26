@@ -1,3 +1,11 @@
+*******************
+POINTS TO BE NOTED
+-> Go to h2-console after running the app to look at DB Schema
+-> A song can be sung by multiple artists
+-> Admin control has been provided in each of the controllers [No seperate controller for admin]
+-> Beacuse of the complexity of the project, REST guidelines have been violated at a couple of places
+*******************
+
 ------------------------------------------------------------------
 USER CONTROLLER APIs
 ------------------------------------------------------------------
