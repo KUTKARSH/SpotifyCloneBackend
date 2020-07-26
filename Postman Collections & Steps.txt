@@ -1,8 +1,10 @@
 *******************
 POINTS TO BE NOTED
--> Go to h2-console after running the app to look at DB Schema.
+-> Website URL : https://silly-pare-01c9f2.netlify.app/     [FRONT-END]
+-> Go to h2-console after running the app to look at DB Schema.(do this in local because H2 is used.
+   It won't be visible in production)
 -> A song can be sung by multiple artists
--> Login & Register has been provided by an API and is STRICTLY THROUGH FRONTEND
+-> Login & Register has been provided by an API and is STRICTLY THROUGH FRONT-END.
    [ ALL APIs CAN BE FREELY USED BY POSTMAN]
 -> Admin control has been provided in each of the controllers [No seperate controller for admin]
 -> Beacuse of the complexity of the project, REST guidelines have been violated at a couple of places
