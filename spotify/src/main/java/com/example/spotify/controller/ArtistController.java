@@ -24,7 +24,6 @@ public class ArtistController {
     }
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> view(){
         return artistService.read();
     }
@@ -45,19 +44,16 @@ public class ArtistController {
     }
 
     @RequestMapping(value = "/songs/{id}",method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> getSongsByArtistId(@PathVariable Integer id){
         return artistService.getSongsByArtistId(id);
     }
 
     @RequestMapping(value = "/follow/{artistId}/{userId}",method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> follow(@PathVariable Integer artistId,@PathVariable Integer userId){
         return artistService.follow(artistId,userId);
     }
 
     @RequestMapping(value = "/unfollow/{artistId}/{userId}",method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> unfollow(@PathVariable Integer artistId,@PathVariable Integer userId){
         return artistService.unfollow(artistId,userId);
     }

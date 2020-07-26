@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/album")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AlbumController {
     private AlbumService albumService;
 
@@ -22,7 +23,6 @@ public class AlbumController {
     }
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> view(){
         return albumService.read();
     }
@@ -43,7 +43,6 @@ public class AlbumController {
     }
 
     @RequestMapping(value = "/songs/{id}",method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> getAlbumByIdWithSongs(@PathVariable Integer id){
         return albumService.getAlbumByIdWithSongs(id);
     }

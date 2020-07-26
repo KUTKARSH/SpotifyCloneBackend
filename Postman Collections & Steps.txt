@@ -1,0 +1,342 @@
+------------------------------------------------------------------
+USER CONTROLLER APIs
+------------------------------------------------------------------
+// Get all users
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/user/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 1,
+    "name": "SPECTRE",
+    "year": "2012"
+}'
+-----------------------------------------------------------------
+// Create user
+
+curl --location --request POST 'https://spotifybackendchubb.azurewebsites.net/user/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name" : "Jimmy",
+    "email" : "jimmy123@gmail.com",
+    "password" : "12345"
+}'
+-----------------------------------------------------------------
+// Get user by id
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/user/11' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name" : "Jimmy",
+    "email" : "jimmy123@gmail.com",
+    "password" : "12345"
+}'
+-----------------------------------------------------------------
+// Update user
+
+curl --location --request PUT 'https://spotifybackendchubb.azurewebsites.net/user/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 11,
+    "name": "Kumar Utkarsh",
+    "email": "kumar.utkarsh@GMAIL.COM",
+    "password": "123456"
+}'
+-----------------------------------------------------------------
+// Login
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/user/login/kumar.utkarsh@GMAIL.COM/123456' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 11,
+    "name": "Kumar Utkarsh",
+    "email": "kumar.utkarsh@GMAIL.COM",
+    "password": "123456"
+}'
+----------------------------------------------------------------
+SONG CONTROLLER APIs
+-----------------------------------------------------------------
+// Get all songs
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/song/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 11,
+    "name": "Kumar Utkarsh",
+    "email": "kumar.utkarsh@GMAIL.COM",
+    "password": "123456"
+}'
+-------------------------------------------------------------------
+// Get song by id
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/song/41' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 11,
+    "name": "Kumar Utkarsh",
+    "email": "kumar.utkarsh@GMAIL.COM",
+    "password": "123456"
+}'
+-------------------------------------------------------------------
+// Delete song by id
+
+curl --location --request DELETE 'https://spotifybackendchubb.azurewebsites.net/song/49' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 11,
+    "name": "Kumar Utkarsh",
+    "email": "kumar.utkarsh@GMAIL.COM",
+    "password": "123456"
+}'
+-------------------------------------------------------------------
+// Search song by name
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/song/search/MYSTIFY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 11,
+    "name": "Kumar Utkarsh",
+    "email": "kumar.utkarsh@GMAIL.COM",
+    "password": "123456"
+}'
+--------------------------------------------------------------------
+// Create song
+
+curl --location --request POST 'https://spotifybackendchubb.azurewebsites.net/song/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "MYSTIFY",
+    "artistIds": "33,32",
+    "albumId": 22,
+    "duration": "3:40",
+    "year": 2010
+}'
+---------------------------------------------------------------------
+ARTIST CONTROLLER APIs (replace {variables} with appropriate IDs)
+---------------------------------------------------------------------
+// Get all artist details
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/artist/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "MYSTIFY",
+    "artistIds": "33,32",
+    "albumId": 22,
+    "duration": "3:40",
+    "year": 2010
+}'
+---------------------------------------------------------------------
+// Delete artist by id
+
+curl --location --request DELETE 'https://spotifybackendchubb.azurewebsites.net/artist/31' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "MYSTIFY",
+    "artistIds": "33,32",
+    "albumId": 22,
+    "duration": "3:40",
+    "year": 2010
+}'
+---------------------------------------------------------------------
+// Get songs where particular artist was one of the singers
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/artist/songs/31' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "MYSTIFY",
+    "artistIds": "33,32",
+    "albumId": 22,
+    "duration": "3:40",
+    "year": 2010
+}'
+---------------------------------------------------------------------
+// Follow a particular artist by a particular user
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/artist/follow/{artistId}/{userId}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "MYSTIFY",
+    "artistIds": "33,32",
+    "albumId": 22,
+    "duration": "3:40",
+    "year": 2010
+}'
+---------------------------------------------------------------------
+// Unfollow a particular artist by a particular user
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/artist/unfollow/{artistId}/{userId}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "MYSTIFY",
+    "artistIds": "33,32",
+    "albumId": 22,
+    "duration": "3:40",
+    "year": 2010
+}'
+----------------------------------------------------------------------
+// Get artists followed by this userId
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/artist/userFollowed/{userId}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "MYSTIFY",
+    "artistIds": "33,32",
+    "albumId": 22,
+    "duration": "3:40",
+    "year": 2010
+}'
+----------------------------------------------------------------------
+// Get artists not followed by this userId
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/artist/userUnfollowed/{userId}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "MYSTIFY",
+    "artistIds": "33,32",
+    "albumId": 22,
+    "duration": "3:40",
+    "year": 2010
+}'
+-----------------------------------------------------------------------
+ALBUM CONTROLLER APIs
+-----------------------------------------------------------------------
+// Get all albums
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/album/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "MYSTIFY",
+    "artistIds": "33,32",
+    "albumId": 22,
+    "duration": "3:40",
+    "year": 2010
+}'
+-----------------------------------------------------------------------
+// Create a new album
+
+curl --location --request POST 'https://spotifybackendchubb.azurewebsites.net/album/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "name": "BATMAN",
+        "year": "2016"
+}'
+-----------------------------------------------------------------------
+// Delete album by id
+
+curl --location --request DELETE 'https://spotifybackendchubb.azurewebsites.net/album/21' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "name": "BATMAN",
+        "year": "2016"
+}'
+------------------------------------------------------------------------
+// Get album by id
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/album/21' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "name": "BATMAN",
+        "year": "2016"
+}'
+------------------------------------------------------------------------
+// Update album
+
+curl --location --request PUT 'https://spotifybackendchubb.azurewebsites.net/album/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+------------------------------------------------------------------------
+// Get all songs of a  particular album id
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/album/songs/{albumId}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+-----------------------------------------------------------------------
+PLAYLIST CONTROLLER APIs
+
+// Get all playlists in the DB
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/playlist/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+-----------------------------------------------------------------------
+// Get playlist by playlist ID
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/playlist/51' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+----------------------------------------------------------------------
+// Delete playlist by playlist id
+
+curl --location --request DELETE 'https://spotifybackendchubb.azurewebsites.net/playlist/51' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+----------------------------------------------------------------------
+// Add songs to playlist
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/playlist/add/{playlistId}/{songIds}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+----------------------------------------------------------------------
+// Remove songs from playlist
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/playlist/remove/{playlistId}/{songIds}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+----------------------------------------------------------------------
+// Get all songs by playlist id
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/playlist/songs/{playlistId}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+----------------------------------------------------------------------
+// Get all playlists of a particular user
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/playlist/byUser/{userId}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+----------------------------------------------------------------------
+// Create playlist for a particular user. Supply song names as well
+
+curl --location --request GET 'https://spotifybackendchubb.azurewebsites.net/playlist/userCreate/{playlistName}/{comma seperated song names(capitals)}/{userId}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 21,
+    "name": "KNIGHT",
+    "year": "2010"
+}'
+----------------------------------------------------------------------

@@ -96,8 +96,7 @@ public class PlaylistService {
         Playlist playlist = new Playlist();
         playlist.setName(name);
         playlist.setUserId(Integer.parseInt(userId));
-        playlist.setSongIds(songIds);
-        playlistRepository.save(playlist);
+          playlistRepository.save(playlist);
         return new ResponseEntity<>(playlist,HttpStatus.OK);
     }
 

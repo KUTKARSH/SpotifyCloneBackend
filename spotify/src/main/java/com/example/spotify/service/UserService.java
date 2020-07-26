@@ -47,11 +47,13 @@ public class UserService {
         {
             resp.setStatus("Valid");
             resp.setUserId(user.getId());
+            resp.setUserName(user.getName());
         }
         else
         {
             resp.setStatus("Invalid");
             resp.setUserId(-1);
+            resp.setUserName("Guest");
         }
         return new ResponseEntity<>(resp,HttpStatus.OK);
     }

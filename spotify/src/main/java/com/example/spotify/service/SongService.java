@@ -37,4 +37,8 @@ public class SongService {
         Song song = songRepository.findById(id).get();
         return new ResponseEntity<>(song,HttpStatus.FOUND);
     }
+
+    public ResponseEntity<?> searchByName(String name){
+        return new ResponseEntity<>(songRepository.findByName(name),HttpStatus.OK);
+    }
 }

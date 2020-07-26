@@ -23,19 +23,16 @@ public class PlaylistController {
     }
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> view(){
         return playlistService.read();
     }
 
     @RequestMapping(value = "/{id}" , method = RequestMethod.DELETE)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> delete(@PathVariable Integer id){
         return playlistService.delete(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> viewById(@PathVariable Integer id){
         return playlistService.readById(id);
     }
@@ -51,7 +48,6 @@ public class PlaylistController {
     }
 
     @RequestMapping(value = "/songs/{id}",method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> getPlaylistByIdWithSongs(@PathVariable Integer id){
         return playlistService.getPlaylistByIdWithSongs(id);
     }
