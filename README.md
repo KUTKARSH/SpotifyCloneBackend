@@ -1,10 +1,32 @@
-# SpotifyCloneBackend
-Backend service for a spotify clone.
+# 🎵 SpotifyCloneBackend
 
-It exposes a couple of RESTful endpoints which are suitable for consumption by any suitable frontend.
-You can create playlists, add songs to playlists, listen to specific artists and also provides admin functionalities.
-Tech stack : 
-* Java 
-* Spring-Boot
-* H2 database
-* Heroku
+A backend service for a **Spotify clone**, built with Java and Spring Boot.
+
+This service exposes a set of **RESTful APIs** designed to be consumed by any compatible frontend application. It supports features like playlist creation, song management, artist browsing, and administrative functionalities.
+
+---
+
+## 📌 Features
+
+- ✅ Create and manage **playlists**
+- ✅ Add or remove **songs** from playlists
+- ✅ Listen to songs by **specific artists**
+- ✅ Built-in **admin functionalities** for content and user management
+
+---
+
+## 🛠️ Tech Stack
+
+- **Java**
+- **Spring Boot**
+- **H2 Database** (In-memory for development)
+- **Heroku** (for cloud deployment)
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/SpotifyCloneBackend.git
+   cd SpotifyCloneBackend
